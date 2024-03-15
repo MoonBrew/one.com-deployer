@@ -48,7 +48,7 @@ chmod 600 "$ONE_SSH_KEY_PRIVATE_PATH"
 chmod 644 "$ONE_SSH_KEY_PUBLIC_PATH"
 
 # Deploy via SSH
-rsync -e "ssh -v -p 22 -i ${ONE_SSH_KEY_PRIVATE_PATH} -o StrictHostKeyChecking=no" -a --out-format="%n" --exclude=".*" $SRC_PATH $ONE_DESTINATION
+rsync -e "ssh -p 22 -i ${ONE_SSH_KEY_PRIVATE_PATH} -o StrictHostKeyChecking=no" -a --out-format="%n" --exclude=".*" --delete $SRC_PATH $ONE_DESTINATION
 
 
 # Clear cache
